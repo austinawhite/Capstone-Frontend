@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function CityPage (){
-    const [cities, setCities] = useState([]);
+function CityDetails (){
+    const [city, setCity] = useState({});
+    const {id} = useParams();
 
     useEffect(()=>{
-        const fetchCities = async () => {
+        const fetchCity = async () => {
         try{
-            const res = await fetch("http://localhost:3000/cities");
+            const res = await fetch(`http://localhost:3000/cities/${id}`);
             const data = await res.json();
-            setCities(data);
+            setCity(data);
         }catch(err){
             console.error(err);
         }
     };
-        fetchCities();
-    }, []);
+        fetchCity();
+    }, [id]);
 
-    console.log(cities)
+    console.log(city)
 
 
 
     return(
         <div className="cityContainer">
-            {cities.map((city)=> (
+            
                 <div key={city.id} className="citySection">
                     <h2 className="CityName">{city.city_name}</h2>
 
@@ -31,10 +32,11 @@ function CityPage (){
                     alt={city.city_name}
                     className="CityImage"
                     />
+                    <h2>{city.city_description}</h2>
                     </div>
-            ))}
+          
         </div>
     )
 }
 
-export default CityPage
+export default CityDetails

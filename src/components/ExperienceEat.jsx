@@ -31,7 +31,7 @@ function Experiences_Eat () {
 
         return(
             <div className="cityExperiences"> 
-            <h2> City Experiences </h2> 
+
             {experiences.length === 0 ? (
                 <p> There are no experiences for this city. </p>) : (
                     <ul style={{ listStyle: "none", padding: 0}}> 
@@ -41,8 +41,6 @@ function Experiences_Eat () {
                         <img src={experience.experience_picture} alt="experience picture"/>
                         
                         <h3> {experience.experience_name} </h3>
-            
-                        <p>  {experience.experience_description} </p>
                         
                         
                         </li>

@@ -6,12 +6,13 @@ import Register from './components/Register'
 import Login from './components/Login'
 import './App.css'
 import CityDetails from './components/CityDetails'
+import Navigation from './components/navigation'
 
 function App() {
   const [token, setToken] = useState (null);
   const [userId, setUserId] = useState (null);
   
-  // const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+
 
     //set token in localStorage
       useEffect(() => {
@@ -53,6 +54,9 @@ function App() {
 
   return (
     <>
+    <nav>  
+    <Navigation token={token} setToken={setToken} setUserId={setUserId} userId={userId}/>
+    </nav>
      <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<CityPage/>}/>

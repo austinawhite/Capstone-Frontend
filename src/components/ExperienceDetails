@@ -1,7 +1,0 @@
-import { React, useEffect } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
-
-// Experience details page - shows full information for an experience 
-// ! Will require button to add an experience to a trip 
-// ! Will require adding the reviews to the details page 
-

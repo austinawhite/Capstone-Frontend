@@ -15,29 +15,27 @@ async function handleSubmit (event){
             method: "POST",
             headers: {'Content-type':'application/json'},
             body: JSON.stringify({
-                email: email,
-                password: password
+                email, password
             })
         });
         const result = await response.json();
-        const invalidResults = ['Not authorized.', "Unable to login"];
 
-        if (!invalidResults.includes(result)) {
-          setToken(result);
-        };
+        if (result.success) {
+          setToken(result.token);
+          
+          const res = await fetch(`http://localhost:3000/users/user`, { 
+            headers: {
+                'Authorization': `Bearer ${result.token}` 
+            }
+          });
+          const data = await res.json();
+          console.log(data);
+          setUserId(data.id);
+        }
     }catch(error){
         console.log(error)
     };
-    try {
-        const res = await fetch(`http://localhost:3000/users/login/getInfo/${email}`);
-        const data = await res.json();
-        console.log(data);
-        setUserId(data.id);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
+};
       return (
         <>
     <div className="login">

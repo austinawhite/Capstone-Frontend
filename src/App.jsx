@@ -14,43 +14,13 @@ function App() {
   
 
 
-    //set token in localStorage
-      useEffect(() => {
-        const invalidTokens = ['Not authorized.', "Unable to login"];
-
-        if (token && !invalidTokens.includes(token)) {
-          localStorage.setItem("token", token);
-        } else {
-          localStorage.removeItem("token");
-        }
-      }, [token]);
-
-
-      //retrieve token from localStorage
-  useEffect(()=>{
-    const storedToken = localStorage.getItem("token");
-    if (storedToken){
-      setToken(storedToken)
+    useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
     }
-  },[]);
-
-      //set user in localStorage
-  useEffect(() => {
-    if (token)  {
-      localStorage.setItem("userId", userId)
-    }else{
-      localStorage.removeItem("userId")
-    }
-  }, [userId]);
-
-
-      //retrieve user from localStorage
-  useEffect(()=>{
-    const storedUserId = localStorage.getItem("userId");
-    if (storedUserId){
-      setUserId(storedUserId)
-    }
-  },[]);
+  }, [token]);
 
   return (
     <>
@@ -62,7 +32,7 @@ function App() {
         <Route path="/cities" element={<CityPage/>}/>
         <Route path="/cities/:id" element={<CityDetails/>}/>
         <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>
       </Routes>
     </>
   )

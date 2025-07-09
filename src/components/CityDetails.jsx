@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Experiences_Eat from "./ExperienceEat";
 
 function CityDetails (){
     const [city, setCity] = useState({});
@@ -34,7 +35,11 @@ function CityDetails (){
                     />
                     <h2>{city.city_description}</h2>
                     </div>
-          
+                    
+                <div>
+                    <h2> Places to Eat </h2>
+                    <Experiences_Eat/>
+                </div>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './components/Home'
 import CityPage from './components/CityPage'
+import Register from './components/Register'
 
 import './App.css'
 import CityDetails from './components/CityDetails'
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<CityPage/>}/>
         <Route path="/cities/:id" element={<CityDetails/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </>
   )

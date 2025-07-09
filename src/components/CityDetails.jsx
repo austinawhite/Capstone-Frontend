@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Experiences_Eat from "./ExperienceEat";
+import Experiences_Drink from "./ExperienceDrink";
+import Experiences_Play from "./ExperiencePlay";
+import Experiences_Explore from "./ExperienceExplore";
 
 function CityDetails (){
     const [city, setCity] = useState({});
@@ -27,19 +30,58 @@ function CityDetails (){
         <div className="cityContainer">
             
                 <div key={city.id} className="citySection">
-                    <h2 className="CityName">{city.city_name}</h2>
 
+                    <div className="cityImage">
                     <img src={city.city_image}
                     alt={city.city_name}
                     className="CityImage"
                     />
-                    <h2>{city.city_description}</h2>
                     </div>
+
+                    <div className="cityDetails">
+                    <h1> {city.city_name} </h1>
+                    <p>{city.city_description}</p>
+                    </div>
+
+                </div>
                     
-                <div>
+                <div className="cityExperiences">
+
+                    <div className="experiencesSection">
                     <h2> Places to Eat </h2>
                     <Experiences_Eat/>
+                    </div>
+
                 </div>
+
+                <div className="cityExperiences">
+
+                    <div className="experiencesSection">
+                    <h2> Grab A Drink </h2>
+                    <Experiences_Drink/>
+                    </div>
+
+                </div>
+
+                <div className="cityExperiences">
+
+                    <div className="experiencesSection">
+                    <h2> Have Some Fun </h2>
+                    <Experiences_Play/>
+                    </div>
+
+                </div>
+
+                 <div className="cityExperiences">
+
+                    <div className="experiencesSection">
+                    <h2> Go Explore </h2>
+                    <Experiences_Explore/>
+                    </div>
+
+                </div>
+
+
         </div>
     )
 }

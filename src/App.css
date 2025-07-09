@@ -40,3 +40,69 @@
 .read-the-docs {
   color: #888;
 }
+
+/* CSS for City Info on City Details Page */
+
+.citySection {
+  display: flex;
+  flex-direction: row;
+  height: 300;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cityImage {
+  height: 100%;
+  flex: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.cityDetails {
+  height: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  align-items: left;
+  justify-content: left;
+  color: black;
+}
+
+/* CSS for Experiences Section on Cities */
+
+.cityExperiences {
+  padding: 10px;
+}
+
+.cityExperiences ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.experience-card {
+  
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+  width: 300px;
+}
+
+.experience-card img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}

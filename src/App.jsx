@@ -7,6 +7,7 @@ import Login from './components/Login'
 import './App.css'
 import CityDetails from './components/CityDetails'
 import Navigation from './components/navigation'
+import ExperienceDetails from './components/ExperienceDetails'
 import Destinations from './components/Destinations'
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/destinations" element={<Destinations/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>
+        <Route path="/experiences/:id" element={<ExperienceDetails/>}/>
       </Routes>
     </>
   )

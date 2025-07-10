@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Experience details page - shows full information for an experience 
 // ! Will require button to add an experience to a trip 
@@ -36,9 +37,12 @@ function Experiences_Eat () {
                 <p> There are no experiences for this city. </p>) : (
                     <ul style={{ listStyle: "none", padding: 0}}> 
                     {experiences.map ((experience) => (
+                        
                         <li key={experience.id} className="experience-card"> 
-
+                        
+                        <a href={`/experiences/${experience.id}`}>
                         <img src={experience.experience_picture} alt="experience picture"/>
+                        </a>
                         
                         <h3> {experience.experience_name} </h3>
                         

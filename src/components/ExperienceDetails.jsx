@@ -5,52 +5,39 @@ import { useParams } from "react-router-dom";
 // ! Will require button to add an experience to a trip 
 // ! Will require adding the reviews to the details page 
 
-function CityExperiences () {
-    const [experiences, setExperiences] = useState ([]);
+function ExperienceDetails () {
+    const [experiences, setExperiences] = useState({});
     const {id} = useParams();
 
     useEffect(()=>{
-        const fetchExperiences = async () => {
-        try {
-            const res = await fetch (`http://localhost:3000/experiences/${id}`);
-
-            if(!res.ok) {
-                throw new Error ('Failed to fetch experiences');
-            }
-
-            const data = await res.json();
-            setExperiences(data);
-        }catch(err){
+        const fetchExperience = async () => {
+            try{
+                const res = await fetch (`http://localhost:3000/experiences/${id}`);
+                const data = await res.json();
+                setExperiences(data);
+              }catch(err){
             console.error(err);
         }
-        };
-            fetchExperiences();
-        }, [id]);
+    };
+        fetchExperience();
+    }, [id]);
 
+    console.log(experiences)
 
-        return(
-            <div className="cityExperiences"> 
-            <h2> City Experiences </h2> 
-            {experiences.length === 0 ? (
-                <p> There are no experiences for this city. </p>) : (
-                    <ul style={{ listStyle: "none", padding: 0}}> 
-                    {experiences.map ((experience) => (
-                        <li key={experience.id} className="experience-card"> 
+    return(
 
-                        <img src={experience.experience_picture} alt="experience picture"/>
-                        
-                        <h3> {experience.experience_name} </h3>
-            
-                        <p>  {experience.experience_description} </p>
-                        
-                        
-                        </li>
-                    ))}
-                    </ul>
-                )}
+        <div className = "experienceHeader">
+            <div className="headerImage">
+                <img src={experiences.experience_image} />
             </div>
-);
+            <div className="headerInfo">
+                <h1> {experiences.experience_name}</h1>
+                <p> {experiences.experience_description}</p>
+            </div>
 
-}
+        </div>
 
-export default CityExperiences;
+    )}
+
+    export default ExperienceDetails
+           

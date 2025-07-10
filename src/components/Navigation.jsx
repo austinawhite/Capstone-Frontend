@@ -1,57 +1,52 @@
 import {Link} from "react-router-dom"
 
-function Navigation ({token, setToken, setUserId, userId}){
+function Navigation ({token, setToken}){
 
     const logout = () => {
         setToken(null);
-        setUserId(null)
+        localStorage.removeItem("token");
     };
 
     return(
-        <>
-        {token ? 
-                    
-                    <div className="navItems">
+        <nav className="navbar">
+        <div className="navItems">
 
-                    <Link to="/" className="navLink">
-                    Home
-                    </Link>
+            <Link to="/" className="navLink">
+                Home
+            </Link>
 
-                    {/* <Link to={`/users/${(userId)}`} className="navLink">
-                    My Account
-                    </Link> */}
-                    <Link to="/destinations" className="navLink">
-                        Destinations
-                    </Link>
+             <Link to="/destinations" className="navLink">
+                 Destinations
+            </Link>
 
-                    <Link to="/reviews" className="navLink">
-                    Reviews
-                    </Link>
+        {token ? (
 
-                    <button onClick={logout} className="button">Logout</button>
-                    </div>
-                 : 
-                    <div className="navItems">
-                    <Link to="/" className="navLink">Home</Link>
+            <>
+                   
+            <Link className="navLink" to="/account">Account</Link>
 
-                    <Link to="/destinations" className="navLink">
-                    Destinations
-                    </Link>
-
-                    {/* <Link to="/reviews" className="navLink">Reviews</Link> */}
-
-                    <Link to="/login" className="navLink"> Login </Link>
-                    
-                    <Link to="/register" className="navLink"> Register </Link> 
-
-                    
-                    </div>
-                }
+            <button onClick={logout} className="button">Logout</button>
+            
             </>
+
+            ) : (
+                
+            <>
+
+            <Link to="/login" className="navLink"> Login </Link>
+                    
+            <Link to="/register" className="navLink"> Register </Link> 
+            
+            </>
+            )}        
+            
+            </div>
+            
+        </nav>
         
     );
 
-};
+}
     
 
 export default Navigation

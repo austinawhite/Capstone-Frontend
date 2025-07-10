@@ -7,6 +7,7 @@ import Login from './components/Login'
 import './App.css'
 import CityDetails from './components/CityDetails'
 import Navigation from './components/navigation'
+import ExperienceDetails from './components/ExperienceDetails'
 
 function App() {
   const [token, setToken] = useState (null);
@@ -33,6 +34,7 @@ function App() {
         <Route path="/cities/:id" element={<CityDetails/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>
+        <Route path="/experiences/:id" element={<ExperienceDetails/>}/>
       </Routes>
     </>
   )

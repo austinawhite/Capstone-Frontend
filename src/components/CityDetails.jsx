@@ -42,7 +42,10 @@ function CityDetails (){
                     <div className="cityDetails">
                     <h1> {city.city_name} </h1>
                     <p>{city.city_description}</p>
+                    <button> Create Trip </button>
                     </div>
+
+                
 
                 </div>
                     

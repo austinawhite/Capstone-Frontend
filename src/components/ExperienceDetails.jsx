@@ -12,7 +12,7 @@ function ExperienceDetails () {
     useEffect(()=>{
         const fetchExperience = async () => {
             try{
-                const res = await fetch (`http://localhost:3000/experiences/${id}`);
+                const res = await fetch(`http://localhost:3000/experiences/details/${id}`);
                 const data = await res.json();
                 setExperiences(data);
               }catch(err){
@@ -28,11 +28,20 @@ function ExperienceDetails () {
 
         <div className = "experienceHeader">
             <div className="headerImage">
-                <img src={experiences.experience_image} />
+                <h1> Experience Test </h1>
+                 <img src={experiences.experience_picture} alt="experience picture"/>
             </div>
             <div className="headerInfo">
                 <h1> {experiences.experience_name}</h1>
                 <p> {experiences.experience_description}</p>
+            </div>
+
+            <div>
+                <button> Add to Trip </button>
+            </div>
+
+            <div>
+                <h2> Reviews </h2>
             </div>
 
         </div>

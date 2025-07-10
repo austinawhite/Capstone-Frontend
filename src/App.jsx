@@ -8,6 +8,7 @@ import './App.css'
 import CityDetails from './components/CityDetails'
 import Navigation from './components/navigation'
 import ExperienceDetails from './components/ExperienceDetails'
+import Destinations from './components/Destinations'
 
 function App() {
   const [token, setToken] = useState (null);
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<CityPage/>}/>
         <Route path="/cities/:id" element={<CityDetails/>}/>
+        <Route path="/destinations" element={<Destinations/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>
         <Route path="/experiences/:id" element={<ExperienceDetails/>}/>

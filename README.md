@@ -1,12 +1,21 @@
-# React + Vite
+Team Name: Merge Masters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+App Name: Planr
 
-Currently, two official plugins are available:
+App Description:  Our app is your perfect vacation companion! Use it to discover the best local experiences in each city including popular landmarks, great restaurants, and even the best happy hours in town. In the app users can simply select the city, create a trip, and then browse and select from the various experience recommendations to build the perfect trip itinerary.  And to ensure the trip is really amazing, each experience includes reviews from previous travellers. With our app, your next amazing trip is just a few taps away!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Architecture Overview 
+- To be added 
 
-## Expanding the ESLint configuration
+Technologies, Tools, and Frameworks 
+- To be added 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+AI Usage 
+- Branding (app logo, color scheme, and banner images)
+- Seed data (descriptions of cities, list of local experiences, and descriptions)
+- Troubleshooting (ex. understanding error messages, defining key terms, breaking down examples, etc)
+
+Additional Resources 
+- React documentation 
+- W3 Schools 
+- Previous bootcamp projects 

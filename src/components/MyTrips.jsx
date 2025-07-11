@@ -1,2 +1,14 @@
-import { React, useEffect } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
+
+
+
+function MyTrips (){
+   
+
+    return (
+        <>
+       
+        </>
+    )
+}
+
+export default MyTrips

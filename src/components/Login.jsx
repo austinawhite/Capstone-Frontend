@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login ({setToken, setUserId}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-
+    const navigate = useNavigate();
+    
+   
 // API Call with token for user
 
 async function handleSubmit (event){
@@ -19,9 +21,12 @@ async function handleSubmit (event){
             })
         });
         const result = await response.json();
+        
 
         if (result.success) {
           setToken(result.token);
+          navigate("/");
+        
           
           const res = await fetch(`http://localhost:3000/users/user`, { 
             headers: {

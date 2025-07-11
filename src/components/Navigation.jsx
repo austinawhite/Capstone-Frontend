@@ -8,7 +8,7 @@ function Navigation ({token, setToken}){
         setToken(null);
         localStorage.removeItem("token");
         navigate("/")
-        window.location.reload();
+        
     };
 
     return(

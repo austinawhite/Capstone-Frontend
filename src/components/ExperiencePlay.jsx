@@ -1,3 +1,5 @@
+// Experiences - Play: Shows all attractions for a city. User can click on the attraction for more details. 
+
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 

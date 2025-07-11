@@ -1,3 +1,7 @@
+// My account page for the user - This will display their upcoming and previous trips, as well as general information about their account such as their username. 
+
+// TODO: Email address not appearing on the page
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 

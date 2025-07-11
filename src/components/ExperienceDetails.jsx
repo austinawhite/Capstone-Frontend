@@ -1,3 +1,5 @@
+// Experience Details - Shows the image, name, description and reviews for an experience. The user can also add an experience to their upcoming trip from this page. 
+
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 

@@ -1,3 +1,5 @@
+// Experiences - Explore: Shows all outdoor activities for a city. User can click on the activity for more details. 
+
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 

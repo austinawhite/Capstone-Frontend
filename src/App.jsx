@@ -10,6 +10,7 @@ import Navigation from './components/navigation'
 import ExperienceDetails from './components/ExperienceDetails'
 import Destinations from './components/Destinations'
 import Account from './components/Account'
+import CreateTrip from './components/CreateTrip'
 
 function App() {
   const [token, setToken] = useState (null);
@@ -38,7 +39,8 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>
         <Route path="/experiences/:id" element={<ExperienceDetails/>}/>
-       <Route path='/account' element={token ? <Account token={token} /> : <Navigate to="/login" />} />
+        <Route path='/account' element={token ? <Account token={token} /> : <Navigate to="/login" />} />
+        <Route path='/createtrip' element={<CreateTrip/>}/>
       </Routes>
     </>
   )

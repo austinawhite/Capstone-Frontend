@@ -4,6 +4,7 @@ import Experiences_Eat from "./ExperienceEat";
 import Experiences_Drink from "./ExperienceDrink";
 import Experiences_Play from "./ExperiencePlay";
 import Experiences_Explore from "./ExperienceExplore";
+import CreateTrip from "./CreateTrip";
 
 
 function CityDetails (){
@@ -23,9 +24,7 @@ function CityDetails (){
         fetchCity();
     }, [id]);
 
-    console.log(city)
-
-
+    console.log(city);
 
     return(
         <div className="cityContainer">
@@ -42,7 +41,9 @@ function CityDetails (){
                     <div className="cityDetails">
                     <h1> {city.city_name} </h1>
                     <p>{city.city_description}</p>
-                    <button> Create Trip </button>
+                    <button>
+                Create New Trip
+            </button>
                     </div>
 
                 
@@ -85,8 +86,8 @@ function CityDetails (){
 
                 </div>
 
+                </div>
 
-        </div>
     )
 }
 

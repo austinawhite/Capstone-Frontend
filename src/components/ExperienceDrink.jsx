@@ -1,3 +1,5 @@
+// Experiences - Drinks: Shows all bars for a city. User can click on the bar for more details. 
+
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 

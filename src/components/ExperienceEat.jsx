@@ -1,3 +1,5 @@
+// Experiences - Eat: Shows all restaurants for a city. User can click on the restaurant for more details. 
+
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";

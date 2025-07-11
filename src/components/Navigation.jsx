@@ -1,10 +1,14 @@
 import {Link} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function Navigation ({token, setToken}){
+    const navigate = useNavigate();
 
     const logout = () => {
         setToken(null);
         localStorage.removeItem("token");
+        navigate("/")
+        window.location.reload();
     };
 
     return(

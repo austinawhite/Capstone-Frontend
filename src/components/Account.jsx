@@ -3,11 +3,12 @@
 // TODO: Email address not appearing on the page
 
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Account ({token}) {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
     if (!token) {

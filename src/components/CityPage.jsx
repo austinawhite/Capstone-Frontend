@@ -26,12 +26,18 @@ function CityPage (){
             {cities.map((city)=> (
                 <Link to={`/cities/${city.id}`}>
                 <div key={city.id} className="citySection">
-                    <h2 className="CityName">{city.city_name}</h2>
 
+                    <div>
+                    <h2 className="CityName">{city.city_name}</h2>
+                    </div>
+
+                    <div>
                     <img src={city.city_image}
                     alt={city.city_name}
-                    className="CityImage"
+                    className="FeaturedCity"
                     />
+                    </div>
+                    
                     </div>
                     </Link>
             ))}

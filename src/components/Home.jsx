@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import CityPage from './CityPage';
+import hero from '../assets/hero.png';
 
 const Home = () => {
 
@@ -8,12 +9,11 @@ const Home = () => {
         <div className="home">
 
             <div className="homeHeader"> 
-                <p> Welcome To </p>
-                <h1> Planr </h1> 
-                <p> Plan your next dream vacation with Planr! Your all-in-one tool for finding and planning the best local experiences in each city. </p>
+               <img src={hero} alt="Planr Logo" />
             </div>
 
-            <h2> Featured Destinations </h2>
+            <h2 style={{fontSize: '32px'}}> Featured Destinations </h2>
+            <p> Select a city to create a trip and view recommended experiences </p>
 
              <div className="homeFeatured">
                 {<CityPage></CityPage>}

@@ -9,6 +9,8 @@ function ExperienceDetails () {
     const [experiences, setExperiences] = useState({});
     const {id} = useParams();
 
+
+
     useEffect(()=>{
         const fetchExperience = async () => {
             try{

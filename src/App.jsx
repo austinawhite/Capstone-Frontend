@@ -33,7 +33,7 @@ function App() {
      <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<CityPage/>}/>
-        <Route path="/cities/:id" element={<CityDetails/>}/>
+        <Route path="/cities/:id" element={<CityDetails token={token} />}/>
         <Route path="/destinations" element={<Destinations/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId}/>}/>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
+import MyTrips from './MyTrips';
 
 export default function Account ({token}) {
     const [user, setUser] = useState(null);
@@ -37,6 +38,7 @@ export default function Account ({token}) {
       <h3>Email Address: {user.email} </h3>
 
       <h1> My Upcoming Trips </h1>
+      <MyTrips token={token} />
 
       <h1> My Previous Trips </h1>
       

@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -18,21 +16,6 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
@@ -44,10 +27,29 @@
 /* CSS for Homepage */
 
 .home {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #dfeffe;
 
+}
+
+.homeHeader {
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.homeHeader img{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .cityContainer {
@@ -74,14 +76,27 @@
   border-radius: 10px;
 }
 
+/* CSS for CityPage Component */
+
+.citySection {
+    display: flex;
+    flex-direction: row;
+}
+
+.CityName{
+  color: #082031;
+}
+
+
+
 /* CSS for City Info on City Details Page */
 
 .citySection {
-  display: flex;
-  flex-direction: row;
-  height: 300;
-  width: 100%;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center; 
 }
 
 .cityImage {
@@ -142,20 +157,35 @@
 
 /* Navigation Bar */
 
-.navItems {
-  background: blue;
-  padding: 12px 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  position: sticky;
+.navBar {
+  position: fixed; 
   top: 0;
+  left: 0;
+  width: 100vw;
   z-index: 1000;
+}
+
+.navItems {
+  background: #082031;
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    margin: 0; 
 }
 
 .navLink {
   color: white;
+}
+
+.navLeft {
+    display: flex;
+    gap: 1rem; 
+}
+
+.navRight {
+    display: flex;
+    gap: 1rem; 
+    align-items: center;
 }

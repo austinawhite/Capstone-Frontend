@@ -15,14 +15,18 @@ function Navigation ({token, setToken}){
         <nav className="navbar">
         <div className="navItems">
 
+            <div className="navLeft">
             <Link to="/" className="navLink">
                 Home
             </Link>
 
+            {/* - commenting out this link, can add back if additional cities are added to the database 
              <Link to="/destinations" className="navLink">
                  Destinations
-            </Link>
+            </Link> */}
+            </div>
 
+        <div className="navRight">
         {token ? (
 
             <>
@@ -45,7 +49,8 @@ function Navigation ({token, setToken}){
             )}        
             
             </div>
-            
+            </div>
+        
         </nav>
         
     );

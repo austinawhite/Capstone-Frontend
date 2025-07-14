@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import login from '../assets/login.png';
 
 function Login ({setToken, setUserId}){
     const [email, setEmail] = useState("");
@@ -44,8 +45,17 @@ async function handleSubmit (event){
       return (
         <>
     <div className="login">
+    
+        <div className="loginLeft">
+        
+        <img src={login} />
+
+        </div>
+
+        <div className="loginRight">
     <h2 className="loginTitle">Login Here!</h2>
     <br/>
+
     <form onSubmit={handleSubmit}>
     <label className="userTitle">
         Email: <input className="emailInput"
@@ -67,6 +77,7 @@ async function handleSubmit (event){
     <button className="button"> Login </button>
 
     </form>
+    </div>
 
     </div>
     </>

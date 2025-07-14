@@ -155,6 +155,56 @@
   border-radius: 10px;
 }
 
+/* Experience Details */
+
+.experienceDetail{
+   position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.experienceHeader{
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.headerImage{
+  height: 50vh;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.headerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headerInfo {
+  height: 50vh;
+  min-width: 320px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  align-items: center;
+  justify-content: center;
+  background-color: #dfeffe;
+}
+
+.reviewSection {
+  background-color: white;
+}
+
+
 /* Navigation Bar */
 
 .navBar {

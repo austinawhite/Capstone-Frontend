@@ -26,27 +26,31 @@ function ExperienceDetails () {
 
     return(
 
-        <div className = "experienceHeader">
-            <div className="headerImage">
-                <h1> Experience Test </h1>
-                 <img src={experiences.experience_picture} alt="experience picture"/>
-            </div>
-            <div className="headerInfo">
-                <h1> {experiences.experience_name}</h1>
-                <p> {experiences.experience_description}</p>
+        <div className = "experienceDetail">
+
+            <div className ="experienceHeader">
+
+                <div className="headerImage">
+                    <img src={experiences.experience_picture} alt="experience picture"/>
+                </div>
+
+                <div className="headerInfo">
+
+                    <h1> {experiences.experience_name}</h1>
+                    <p> {experiences.experience_description}</p>
+                    <button> Add to Trip </button>
+
+                </div>
+
             </div>
 
-            <div>
-                <button> Add to Trip </button>
-            </div>
-
-            <div>
-                <h2> Reviews </h2>
-            </div>
-
+        <div className="reviewSection">
+        <h2> Reviews </h2>
+        </div>
+    
+         
         </div>
 
     )}
 
     export default ExperienceDetails
-           

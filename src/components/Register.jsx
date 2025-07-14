@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import register from '../assets/register.png'
 
 function Register (){
     const navigate = useNavigate();
@@ -35,7 +36,14 @@ function Register (){
   }
 
     return (
-        <>
+        <div className="registration">
+
+        <div className="registerLeft">
+            <img src={register} />
+
+        </div>
+
+        <div className="registerRight">
         <h2 className="registerTitle">Please Sign Up Here!</h2>
         <br/>
         <div className="registerForm">
@@ -64,9 +72,11 @@ function Register (){
                 <button className = "button" type="submit">Submit</button>
 
             </form>
+          
         }
+          </div>
         </div>
-        </>
+        </div>
         
     )
 }

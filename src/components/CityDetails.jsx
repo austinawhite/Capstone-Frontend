@@ -1,3 +1,5 @@
+//! User is getting logged out when they visit the city details page - will need to be logged in to add the experience to a trip 
+
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Experiences_Eat from "./ExperienceEat";
@@ -74,8 +76,12 @@ function CityDetails({ token }) {
     };
 
     return (
-        <div className="cityContainer">
+        <div className="cityContainer2">
+
+
+            
             <div className="citySection">
+
                 <div className="cityImage">
                     <img src={city.city_image}
                         alt={city.city_name}
@@ -95,6 +101,8 @@ function CityDetails({ token }) {
                     {renderTripSection()}
                 </div>
             </div>
+
+            <div className="experiencesMain">
                 
             <div className="cityExperiences">
                 <div className="experiencesSection">
@@ -123,6 +131,7 @@ function CityDetails({ token }) {
                     <Experiences_Explore/>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

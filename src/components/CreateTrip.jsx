@@ -51,12 +51,6 @@ function CreateTrip({id, token}) {
    const handleSubmit = async (e) => {
        e.preventDefault();
        
-       console.log("=== FORM SUBMISSION DEBUG ===");
-       console.log("Trip Date:", tripDate);
-       console.log("End Date:", endDate);
-       console.log("User:", user);
-       console.log("City ID:", id);
-       console.log("Token:", token);
        
        if (!tripDate || !endDate) {
            alert('Please select both start and end dates');
@@ -74,11 +68,8 @@ function CreateTrip({id, token}) {
            start_date: tripDate,
            end_date: endDate
        };
-       
-       console.log("Request body:", requestBody);
 
        try {
-           console.log("Making API call to:", 'http://localhost:3000/trips');
            
            const response = await fetch('http://localhost:3000/trips', {
                method: 'POST',
@@ -95,7 +86,7 @@ function CreateTrip({id, token}) {
            console.log("Response body:", result);
            
            if (response.ok) {
-               console.log('✅ Trip created successfully:', result);
+               console.log(' Trip created successfully:', result);
                alert('Trip created successfully!');
            } else {
                console.error('❌ Failed to create trip:', result);
@@ -109,15 +100,12 @@ function CreateTrip({id, token}) {
 
    return (
        <div style={{
-           backgroundColor: "yellow", 
-           border: "5px solid red", 
+          backgroundColor: "lightblue",
            padding: "30px", 
            margin: "20px",
            width: "100%",
            minHeight: "300px",
            display: "block",
-           position: "relative",
-           zIndex: 9999
        }}>
            <div style={{
                backgroundColor: "lightblue",
@@ -128,8 +116,7 @@ function CreateTrip({id, token}) {
                <h1 style={{fontSize: "24px", color: "black", margin: "10px 0"}}>{city.city_name || city.name || "Loading..."}</h1>
            </div>
 
-           <div style={{
-               backgroundColor: "lightgreen",
+           <div className="tripFrame"style={{
                padding: "20px"
            }}>
                <form onSubmit={handleSubmit} style={{display: "block"}}>
@@ -189,8 +176,8 @@ function CreateTrip({id, token}) {
                    <button 
                        type="submit" 
                        style={{
-                           backgroundColor: "blue",
-                           color: "white",
+                           backgroundColor: "white",
+                           color: "blue",
                            padding: "10px 20px",
                            fontSize: "16px",
                            border: "none",

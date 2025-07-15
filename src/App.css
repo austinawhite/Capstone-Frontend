@@ -77,6 +77,12 @@
   border-radius: 10px;
 }
 
+.cityContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 /* CSS for CityPage Component */
 
 .citySection {
@@ -91,6 +97,14 @@
 
 
 /* CSS for City Info on City Details Page */
+
+
+
+.cityContainer2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .citySection {
     display: flex;
@@ -118,6 +132,10 @@
   align-items: left;
   justify-content: left;
   color: black;
+}
+
+.tripSection {
+  width: 100%;
 }
 
 /* CSS for Experiences Section on Cities */

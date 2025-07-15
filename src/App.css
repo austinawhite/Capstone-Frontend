@@ -239,7 +239,6 @@
    display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 1rem;
     margin: 0; 
 }
@@ -378,3 +377,12 @@
   }
 }
 
+.account-container{
+ position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* background-color: #dfeffe; */
+    background-color:#9da99c ;
+
+}

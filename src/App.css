@@ -293,6 +293,16 @@
   flex: 1;
 }
 
+
+.userTitle, .passwordTitle{
+width: 240px;
+display: inline-block;
+text-align: right;
+margin-right: 100px;
+}
+
+
+
 /* Registration Page */
 
 .registration{
@@ -376,6 +386,8 @@
     transform: translateX(25%);
   }
 }
+
+/* Account page */
 
 .account-container{
  position: relative;

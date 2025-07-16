@@ -35,7 +35,7 @@ export default function Account ({token}) {
      {user ? (
     <>
       <h1>My Account</h1>
-      <h3>Email Address: {user.email} </h3>
+      {/* <h3>Email Address: {user.email} </h3> */}
 
       <h1> My Upcoming Trips </h1>
       <MyTrips token={token} />

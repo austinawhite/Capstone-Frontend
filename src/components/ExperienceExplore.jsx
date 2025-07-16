@@ -40,9 +40,9 @@ function Experiences_Eat () {
                         
                         <li key={experience.id} className="experience-card"> 
                         
-                        <a href={`/experiences/${experience.id}`}>
+                        <Link to={`/experiences/${experience.id}`}>
                         <img src={experience.experience_picture} alt="experience picture"/>
-                        </a>
+                        </Link>
                         
                         <h3> {experience.experience_name} </h3>
                         

@@ -56,7 +56,7 @@ async function handleSubmit (event){
     <h2 className="loginTitle">Login Here!</h2>
     <br/>
 
-    <form onSubmit={handleSubmit}>
+    <form className="formContainer" onSubmit={handleSubmit}>
     <label className="userTitle">
         Email: <input className="emailInput"
         name = "email"

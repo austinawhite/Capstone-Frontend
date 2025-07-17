@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // Experience details page - shows full information for an experience 
 // ! Will require button to add an experience to a trip 
@@ -7,22 +7,85 @@ import { useParams } from "react-router-dom";
 
 function ExperienceDetails () {
     const [experiences, setExperiences] = useState({});
+    const [trips, setTrips] = useState([]);
+    const [selectedTrip, setSelectedTrip] = useState('');
     const {id} = useParams();
+    const navigate = useNavigate();
+
+    const token = localStorage.getItem('token');
 
     useEffect(()=>{
         const fetchExperience = async () => {
             try{
-                const res = await fetch(`http://localhost:3000/experiences/details/${id}`);
-                const data = await res.json();
+                const response = await fetch(`http://localhost:3000/experiences/details/${id}`);
+                const data = await response.json();
                 setExperiences(data);
+                //debugging
+                console.log('Experience Data:', data);
+                
+
+                if (token) {
+                    console.log('City ID from experience:', data.experience_city);
+
+                    const tripResponse = await fetch(`http://localhost:3000/trips/city/${data.experience_city}`, {
+                        headers: { 
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+
+                    if (tripResponse.ok) {
+                        const tripData = await tripResponse.json()
+                        console.log('Trips Data:', tripData);
+                        setTrips(tripData || [])
+                    }else {
+                        console.error('Failed to fetch trips:', tripResponse.status);
+                    }
+                }
               }catch(err){
-            console.error(err);
+            console.error('Error fetching trip', err);
         }
     };
         fetchExperience();
-    }, [id]);
+    }, [id, token]);
 
-    console.log(experiences)
+
+
+    const handleAddTripButton = async () => {
+        if (!token) {
+            alert("You must be logged in to add a trip");
+            return;
+        }
+
+        if (!selectedTrip) {
+            alert("Please select a trip to add experience to")
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/tripexperiences`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    experience_id: parseInt(id, 10),
+                    trip_id: parseInt(selectedTrip, 10),
+                    experience_date: new Date().toISOString().split('T')[0], 
+                }),
+            });
+
+            if (response.ok) {
+                alert("Experience added to trip");
+                navigate('/account');
+            } else {
+                const errData = await response.json()
+                alert (errData.error || "Failed to add to trip" );
+            }
+        } catch (error) {
+            alert (`Error: ${error.message}`)
+        }
+    }
 
     return(
 
@@ -38,18 +101,36 @@ function ExperienceDetails () {
 
                     <h1> {experiences.experience_name}</h1>
                     <p> {experiences.experience_description}</p>
-                    <button> Add to Trip </button>
 
+                    {token && (
+                        <div>
+                            {trips.length > 0 ? (
+                                <>
+                                <select 
+                                value={selectedTrip}
+                                onChange={(event) => setSelectedTrip(event.target.value)}
+                                >
+                                    <option value="">Select a Trip</option>
+                                    {trips.map((trip) => (
+                                        <option key={trip.id} value={trip.id}>
+                                            {trip.trip_name} ({trip.trip_date})
+                                        </option>
+                                    ))}
+                                </select>
+                                <button onClick={handleAddTripButton}> Add to Trip </button>
+                                </>
+                            ) : (
+                                <p>You have no trips for this city yet.</p>
+                            )}
+                        </div>
+                    )}
                 </div>
-
             </div>
 
         <div className="reviewSection">
         <h2> Reviews </h2>
-        </div>
-    
-         
-        </div>
+        </div>  
+     </div>
 
     )}
 

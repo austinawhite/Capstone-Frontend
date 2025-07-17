@@ -26,6 +26,7 @@ async function handleSubmit (event){
 
         if (result.success) {
           setToken(result.token);
+          localStorage.setItem('token', result.token);
           navigate("/");
         
           

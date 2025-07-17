@@ -65,8 +65,8 @@ function CreateTrip({id, token}) {
        const requestBody = {
            user_id: user.id,
            city_id: id,
-           start_date: tripDate,
-           end_date: endDate
+           trip_date: tripDate,
+           end_date: endDate,
        };
 
        try {
@@ -147,6 +147,7 @@ function CreateTrip({id, token}) {
                            type="date" 
                            value={tripDate} 
                            onChange={(e) => setTripDate(e.target.value)}
+                           required
                            style={{
                                padding: "8px",
                                fontSize: "16px",
@@ -164,6 +165,7 @@ function CreateTrip({id, token}) {
                            type="date" 
                            value={endDate} 
                            onChange={(e) => setEndDate(e.target.value)}
+                           required
                            style={{
                                padding: "8px",
                                fontSize: "16px",

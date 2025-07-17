@@ -8,7 +8,7 @@ function MyTrips({ token }) {
    useEffect(() => {
        const fetchTrips = async () => {
            try {
-               const response = await fetch('http://localhost:3000/trips', {
+               const response = await fetch('http://localhost:3000/trips/with-experiences', {
                    headers: {
                        'Authorization': `Bearer ${token}`,
                    },
@@ -31,6 +31,26 @@ function MyTrips({ token }) {
            fetchTrips();
        }
    }, [token]);
+
+   //to delete a trip
+   const deleteTrip = async (tripId) => {
+    try {
+        const response = await fetch (`http://localhost:3000/trips/${tripId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+
+        if (response.ok) {
+            setTrips((prevTrips) => prevTrips.filter(trip => trip.trip_id !== tripId));
+        } else {
+            setError('Failed to delete trip');
+        }
+    } catch(error) {
+        setError('Error deleting trip');
+    }
+   };
 
    if (loading) return <div>Loading your trips...</div>;
    if (error) return <div>Error: {error}</div>;
@@ -57,6 +77,39 @@ function MyTrips({ token }) {
                            <p><strong>Destination:</strong> {trip.city_name}</p>
                            <p><strong>Start Date:</strong> {new Date(trip.trip_date).toLocaleDateString()}</p>
                            <p><strong>End Date:</strong> {new Date(trip.end_date).toLocaleDateString()}</p>
+
+                           <button onClick={() => deleteTrip(trip.trip_id)}
+                            style={{
+                                backgroundColor: 'red', 
+                                color: 'white', 
+                                border: 'none', 
+                                padding: '8px 12px', 
+                                cursor: 'pointer',
+                                borderRadius: '5px',
+                                marginTop: '10px'
+                            }}
+                            >
+                                Delete Trip
+                            </button>
+
+                           <h4>Experiences:</h4>
+                           {trip.experiences.length > 0 ? (
+                                <div>
+                                    {trip.experiences.map((experience) => (
+                                        <div key={experience.experience_id} style={{ marginLeft: "20px" }}>
+                                        <h5>{experience.experience_name}</h5>
+                                        <img 
+                                            src={experience.experience_picture} 
+                                            alt={experience.experience_name} 
+                                            style={{ width: "150px", borderRadius: "5px" }} 
+                                        />
+                                        <p>{experience.experience_description}</p>
+                                    </div>
+                                    ))}
+                                </div>
+                           ) : (
+                                <p>No experiences yet.</p>
+                           )}
                        </div>
                    ))}
                </div>

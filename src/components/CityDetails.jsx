@@ -12,6 +12,7 @@ function CityDetails({ token }) {
     const [city, setCity] = useState({});
     const [existingTrip, setExistingTrip] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [editTrip, setEditTrip] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
@@ -32,7 +33,7 @@ function CityDetails({ token }) {
                     
                     if (tripRes.ok) {
                         const tripData = await tripRes.json();
-                        setExistingTrip(tripData);
+                        setExistingTrip(tripData[0] || null);
                     }
                 }
                 
@@ -56,6 +57,8 @@ function CityDetails({ token }) {
         }
 
         if (existingTrip) {
+            console.log('existingTrip:', existingTrip);
+
             return (
                 <div style={{
                     backgroundColor: "#f0f8ff", 
@@ -65,7 +68,7 @@ function CityDetails({ token }) {
                     borderRadius: "8px"
                 }}>
                     <h3>Your Upcoming Trip</h3>
-                    <p><strong>Start Date:</strong> {new Date(existingTrip.start_date).toLocaleDateString()}</p>
+                    <p><strong>Start Date:</strong> {new Date(existingTrip.trip_date).toLocaleDateString()}</p>
                     <p><strong>End Date:</strong> {new Date(existingTrip.end_date).toLocaleDateString()}</p>
                     <button>Edit Trip</button>
                 </div>

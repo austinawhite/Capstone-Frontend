@@ -37,7 +37,7 @@ function CreateTrip({id, token}) {
                
                const data = await res.json();
                console.log("User data received:", data);
-               setUser(data[0]); // Get the first user from the array
+               setUser(data[0]); 
            } catch (error) {
                console.error("Error fetching user:", error);
            }
@@ -99,91 +99,51 @@ function CreateTrip({id, token}) {
    };
 
    return (
-       <div style={{
-          backgroundColor: "lightblue",
-           padding: "30px", 
-           margin: "20px",
-           width: "100%",
-           minHeight: "300px",
-           display: "block",
-       }}>
-           <div style={{
-               backgroundColor: "lightblue",
-               padding: "10px",
-               marginBottom: "20px"
-           }}>
-               <p style={{fontSize: "18px", color: "black", margin: "0"}}>Create Your Trip to</p>
-               <h1 style={{fontSize: "24px", color: "black", margin: "10px 0"}}>{city.city_name || city.name || "Loading..."}</h1>
+       <div className="tripForm">
+           <div>
+               <p >Create Your Trip to</p>
+               <h1 >{city.city_name}</h1>
            </div>
 
-           <div className="tripFrame"style={{
-               padding: "20px"
-           }}>
-               <form onSubmit={handleSubmit} style={{display: "block"}}>
-                   <div style={{marginBottom: "15px"}}>
+           <div>
+               <form onSubmit={handleSubmit}>
+                   <div>
 
-                <label style={{display: "block", fontSize: "16px", marginBottom: "5px"}}>
-                            Trip Name: 
-                        </label>
-                        <input 
-                            type="text" 
+                <label class="form-label"> Trip Name: </label>
+                <input 
+                        type="text" 
                             value={tripName} 
                             onChange={(e) => setTripName(e.target.value)}
-                            placeholder="Enter a name for your trip"
+                            placeholder="Ex.Stacy's Birthday"
                             style={{
-                                padding: "8px",
-                                fontSize: "16px",
-                                border: "1px solid black",
-                                display: "block",
-                                width: "100%",
-                                maxWidth: "300px"
+                               
                             }}
                         /> 
+                
+                <br></br>
 
-                       <label style={{display: "block", fontSize: "16px", marginBottom: "5px"}}>
-                           Start Date: 
-                       </label>
+                <label class="form-label"> Start Date: </label>
                        <input 
                            type="date" 
                            value={tripDate} 
                            onChange={(e) => setTripDate(e.target.value)}
-                           style={{
-                               padding: "8px",
-                               fontSize: "16px",
-                               border: "1px solid black",
-                               display: "block"
-                           }}
                        /> 
                    </div>
                    
-                   <div style={{marginBottom: "15px"}}>
-                       <label style={{display: "block", fontSize: "16px", marginBottom: "5px"}}>
+                   <div>
+                       <label>
                            End Date: 
                        </label>
                        <input 
                            type="date" 
                            value={endDate} 
                            onChange={(e) => setEndDate(e.target.value)}
-                           style={{
-                               padding: "8px",
-                               fontSize: "16px",
-                               border: "1px solid black",
-                               display: "block"
-                           }}
                        /> 
                    </div>
 
-                   <button 
-                       type="submit" 
-                       style={{
-                           backgroundColor: "white",
-                           color: "blue",
-                           padding: "10px 20px",
-                           fontSize: "16px",
-                           border: "none",
-                           cursor: "pointer"
-                       }}
-                   >
+                   <br></br>
+
+                   <button type="submit">
                        Create Trip
                    </button>
                </form>

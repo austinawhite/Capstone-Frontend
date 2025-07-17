@@ -72,8 +72,13 @@ function CityDetails({ token }) {
             );
         }
 
-        return <CreateTrip id={id} token={token} />;
-    };
+      return (
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <CreateTrip id={id} token={token} />
+        </div>
+        );
+
+        };
 
     return (
         <div className="cityContainer2">

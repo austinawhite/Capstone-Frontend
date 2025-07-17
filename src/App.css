@@ -398,3 +398,21 @@ margin-right: 100px;
     background-color:#9da99c ;
 
 }
+
+/* Trip Form */
+
+.tripForm{
+  background-color: aliceblue;
+  min-width:300px;
+  max-width: 400px;
+  box-shadow: inset;
+  align-items: center;
+  border: #082031;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.tripForm button{
+  background-color: #082031;
+  color: white;
+}

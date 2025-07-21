@@ -91,7 +91,7 @@ function ExperienceDetails() {
                                         <option value="">Select a Trip</option>
                                         {trips.map((trip) => (
                                             <option key={trip.id} value={trip.id}>
-                                                {trip.trip_name} ({trip.trip_date})
+                                                {trip.trip_name} 
                                             </option>
                                         ))}
                                     </select>

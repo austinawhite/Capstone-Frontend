@@ -67,7 +67,7 @@ function CityDetails({ token }) {
                     <h3>Your Upcoming Trip</h3>
                     <p><strong>Start Date:</strong> {new Date(existingTrip.start_date).toLocaleDateString()}</p>
                     <p><strong>End Date:</strong> {new Date(existingTrip.end_date).toLocaleDateString()}</p>
-                    <button>Edit Trip</button>
+                    {/*<button>Edit Trip</button>*/}
                 </div>
             );
         }

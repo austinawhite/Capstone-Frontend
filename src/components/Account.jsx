@@ -42,9 +42,9 @@ export default function Account ({token}) {
       <MyTrips token={token} />
       </div>
 
-      <div className="account-section">
+      {/*<div className="account-section">
       <h1> My Previous Trips </h1>
-      </div>
+      </div>*/}
       
     </>
   ) : (

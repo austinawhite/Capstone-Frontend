@@ -58,6 +58,7 @@ function CreateTrip({ id, token }) {
            city_id: id,
            trip_date: tripDate,
            end_date: endDate,
+           trip_name: tripName || "My Trip"
        };
        try {
            const response = await fetch('http://localhost:3000/trips', {

@@ -223,6 +223,35 @@
   background-color: white;
 }
 
+.tripSelectContainer {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tripSelectDropdown {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 220px;
+}
+
+.addToTripButton {
+  padding: 10px 16px;
+  background-color: #082031;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.addToTripButton:hover {
+  background-color: #005580;
+}
+
 
 /* Navigation Bar */
 
@@ -338,65 +367,25 @@ margin-right: 100px;
   flex: 1;
 }
 
-/* background animation */
-
-
-.bg {
- animation: slide 3s ease-in-out infinite 
-  alternate;
-  background-image:linear-gradient(-60deg, #9da99c 50%, #3392a1 50%) ;
-  bottom: 0;
-  left:-50%;
-  opacity: .5;
-  position:fixed;
-  right: -50%;
-  top: 0;
-  z-index: -1; 
-
-}
-
-.bg2 {animation-direction: alternate-reverse;
-      animation-duration: 4s;
-}
-
-.bg3 {
-  animation-duration: 5s;
-}
-.content {
-  background-color: rgba(255,255, 255, .8);
-  border-radius: .255em;
-  box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
-  box-sizing: border-box;
-  left: 50%;
-  padding: 10vmin;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-
-@keyframes slide {
-  0%{
-    transform: translateX(-25);
-
-  }
-  100%{
-    transform: translateX(25%);
-  }
-}
-
 /* Account page */
 
 .account-container{
  position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
-    /* background-color: #dfeffe; */
-    background-color:#9da99c ;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color:#9da99c;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
+.account-section {
+  background: #3392a1;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Trip Form */
@@ -416,3 +405,178 @@ margin-right: 100px;
   background-color: #082031;
   color: white;
 }
+
+/* My Trips */
+.tripsContainer {
+  padding: 20px;
+  background-color:#3392a1;
+  min-height: 100vh;
+  
+}
+
+.tripsHeader {
+  text-align: center;
+  font-size: 2rem;
+  color: #082031;
+  margin-bottom: 20px;
+}
+
+.tripsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.tripCard {
+  background-color: #dfeffe;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tripCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tripCityImageContainer {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.tripCityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tripDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tripDetail {
+  margin: 5px 0;
+  color: #333;
+}
+
+.tripName {
+  color: #031420;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.experiencesHeader {
+  margin-top: 15px;
+  color: #082031;
+}
+
+.experiencesList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.experienceContainer {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.experienceItem {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.experienceName {
+  font-weight: bold;
+  color: #082031;
+}
+
+.experienceDateContainer {
+  margin-top: 5px;
+}
+
+.experienceDateLabel {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.experienceDateInput {
+  margin-left: 10px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* background animation */
+
+
+.bg {
+  animation: slide 3s ease-in-out infinite 
+   alternate;
+   background-image:linear-gradient(-60deg, #9da99c 50%, #3392a1 50%) ;
+   bottom: 0;
+   left:-50%;
+   opacity: .5;
+   position:fixed;
+   right: -50%;
+   top: 0;
+   z-index: -1; 
+ 
+ }
+ 
+ .bg2 {animation-direction: alternate-reverse;
+       animation-duration: 4s;
+ }
+ 
+ .bg3 {
+   animation-duration: 5s;
+ }
+ .content {
+   background-color: rgba(255,255, 255, .8);
+   border-radius: .255em;
+   box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+   box-sizing: border-box;
+   left: 50%;
+   padding: 10vmin;
+   position: fixed;
+   text-align: center;
+   top: 50%;
+   transform: translate(-50%, -50%);
+ 
+ }
+ 
+ 
+ @keyframes slide {
+   0%{
+     transform: translateX(-25);
+ 
+   }
+   100%{
+     transform: translateX(25%);
+   }
+ }

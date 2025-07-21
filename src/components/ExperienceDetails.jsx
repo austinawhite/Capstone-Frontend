@@ -83,8 +83,9 @@ function ExperienceDetails() {
                     {token && (
                         <div>
                             {trips.length > 0 ? (
-                                <>
+                                <div className="selectTripContainer">
                                     <select
+                                        className="selectTripDropdown"
                                         value={selectedTrip}
                                         onChange={(e) => setSelectedTrip(e.target.value)}
                                     >
@@ -95,8 +96,8 @@ function ExperienceDetails() {
                                             </option>
                                         ))}
                                     </select>
-                                    <button onClick={handleAddTripButton}>Add to Trip</button>
-                                </>
+                                    <button className="addToTripButton" onClick={handleAddTripButton}>Add to Trip</button>
+                                </div>
                             ) : (
                                 <p>You have no trips for this city yet.</p>
                             )}

@@ -71,6 +71,30 @@ function MyTrips({ token }) {
     console.log(`Adding experience with ID ${expId} to trip ${tripId} on date ${selectedDate}`);
    };
 
+   //DELETE an experience
+   const handleDeleteExperience = async (tripId, experienceId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/tripexperiences/${experienceId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+        if (response.ok) {
+            setTripExperiences(prevState => ({
+                ...prevState,
+                [tripId]: prevState[tripId].filter(exp => exp.experience_id !== experienceId),
+            }));
+            alert('Experience deleted successfully!');
+        } else {
+            alert('Failed to delete experience');
+        }
+    } catch (error) {
+        console.error('Error deleting experience:', error);
+        alert('An error occurred while deleting the experience');
+    }
+ };
+
    if (loading) return <div>Loading your trips...</div>;
    if (error) return <div>Error: {error}</div>;
 
@@ -99,7 +123,7 @@ function MyTrips({ token }) {
                                    {tripExperiences[trip.id].map((exp, index) => (
                                        <li key={`${trip.id}-${exp.experience_id}-${index}`} className="experienceContainer">
                                         <div className="experienceItem">
-                                           <span className="experienceName">{exp.experience_name}— </span> 
+                                           <span className="experienceName">{exp.experience_name} </span> 
 
                                            <div className="experienceDateContainer">
                                             <label className="experienceDateLabel">
@@ -112,6 +136,11 @@ function MyTrips({ token }) {
                                                 />
                                             </label>
                                            </div>
+                                           <div className="deleteButtonWrapper">
+                                            <button className="deleteExperienceButton" onClick={() => handleDeleteExperience(trip.id, exp.experience_id)}>
+                                                Delete Experience
+                                           </button>
+                                         </div>
                                          </div>
                                        </li>
                                    ))}

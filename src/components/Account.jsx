@@ -37,10 +37,14 @@ export default function Account ({token}) {
       <h1>My Account</h1>
       {/* <h3>Email Address: {user.email} </h3> */}
 
+      <div className="account-section">
       <h1> My Upcoming Trips </h1>
       <MyTrips token={token} />
+      </div>
 
+      <div className="account-section">
       <h1> My Previous Trips </h1>
+      </div>
       
     </>
   ) : (

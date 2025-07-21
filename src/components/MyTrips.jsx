@@ -51,10 +51,13 @@ function MyTrips({ token }) {
        }
    }, [token]);
 
-   const handleDateChange = (tripId, date) => {
+   const handleDateChange = (tripId, expId, date) => {
     setExperienceDate(prev => ({
         ...prev,
-        [tripId]: date,
+        [tripId]: {
+            ...(prev[tripId] || {}),
+            [expId]: date,
+        },
     }));
    };
 
@@ -72,45 +75,44 @@ function MyTrips({ token }) {
    if (error) return <div>Error: {error}</div>;
 
    return (
-       <div className="tripForm">
-           <h2>My Trips</h2>
+       <div className="tripsContainer">
+           {/*<h2 className="tripsHeader">My Trips</h2>*/}
            
            {trips.length === 0 ? (
                <p>You haven't created any trips yet.</p>
            ) : (
-               <div>
+               <div className="tripsList">
                    {trips.map((trip) => (
-                       <div 
-                           key={trip.id} 
-                           style={{
-                               border: "1px solid #ccc",
-                               padding: "15px",
-                               margin: "10px 0",
-                               borderRadius: "5px"
-                           }}
-                       >
-                           <h3>{trip.trip_name}</h3>
-                           <p><strong>Destination:</strong> {trip.city_name}</p>
-                           <p><strong>Start Date:</strong> {new Date(trip.trip_date).toLocaleDateString()}</p>
-                           <p><strong>End Date:</strong> {new Date(trip.end_date).toLocaleDateString()}</p>
-
-                           <h4>Experiences:</h4>
+                       <div key={trip.id} className="tripCard">
+                           <h3 className="tripName">{trip.trip_name}</h3>
+                           <div className="tripCityImageContainer">
+                           <img src={trip.city_image} alt={trip.city_name} className="tripCityImage" />
+                           </div>
+                           <div className="tripDetailsContainer">
+                           <p className="tripDetail"><strong>Destination:</strong> {trip.city_name}</p>
+                           <p className="tripDetail"><strong>Start Date:</strong> {new Date(trip.trip_date).toLocaleDateString()}</p>
+                           <p className="tripDetail"><strong>End Date:</strong> {new Date(trip.end_date).toLocaleDateString()}</p>
+                           </div>
+                           <h4 className="experiencesHeader">Experiences:</h4>
                            {tripExperiences[trip.id] && tripExperiences[trip.id].length > 0 ? (
-                               <ul>
+                               <ul className="experiencesList">
                                    {tripExperiences[trip.id].map((exp, index) => (
-                                       <li key={`${trip.id}-${exp.experience_id}-${index}`}>
-                                           {exp.experience_name} — 
+                                       <li key={`${trip.id}-${exp.experience_id}-${index}`} className="experienceContainer">
+                                        <div className="experienceItem">
+                                           <span className="experienceName">{exp.experience_name}— </span> 
 
-                                           <div>
-                                            <label>
+                                           <div className="experienceDateContainer">
+                                            <label className="experienceDateLabel">
                                                 Experience Date:
                                                 <input
+                                                    className="experienceDateInput"
                                                     type="date"
-                                                    value={experienceDate[trip.id] || ""}
-                                                    onChange={(e) => handleDateChange(trip.id, e.target.value)}
+                                                    value={experienceDate[trip.id]?.[exp.experience_id] || ""}
+                                                    onChange={(e) => handleDateChange(trip.id, exp.experience_id, e.target.value)}
                                                 />
                                             </label>
                                            </div>
+                                         </div>
                                        </li>
                                    ))}
                                </ul>
